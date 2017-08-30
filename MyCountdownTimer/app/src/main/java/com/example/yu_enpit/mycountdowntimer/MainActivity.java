@@ -50,14 +50,18 @@ public class MainActivity extends AppCompatActivity {
         mFab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(mTimer.isRunning){
-                    mTimer.isRunning=false;
+                if (mTimer.isRunning) {
+                    mTimer.isRunning = false;
                     mTimer.cancel();
                     mFab.setImageResource(R.drawable.ic_play_arrow_black_24dp);
+                } else {
+                    mTimer.isRunning = true;
+                    mTimer.start();
+                    mFab.setImageResource(R.drawable.ic_stop_black_24dp);
                 }
             }
         });
-    }
+}
 
     @Override
     protected void onResume(){
